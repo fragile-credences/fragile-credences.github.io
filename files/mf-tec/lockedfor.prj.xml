@@ -1,0 +1,222 @@
+<TaskerData sr="" dvi="1" tv="5.6">
+	<Profile sr="prof12" ve="2">
+		<cdate>1536569709008</cdate>
+		<clp>true</clp>
+		<edate>1536569709008</edate>
+		<id>12</id>
+		<mid0>10</mid0>
+		<Event sr="con0" ve="2">
+			<code>411</code>
+			<pri>0</pri>
+		</Event>
+	</Profile>
+	<Profile sr="prof7" ve="2">
+		<cdate>1530279741924</cdate>
+		<clp>true</clp>
+		<edate>1530282785125</edate>
+		<id>7</id>
+		<mid0>5</mid0>
+		<mid1>11</mid1>
+		<Event sr="con0" ve="2">
+			<code>1000</code>
+			<pri>0</pri>
+		</Event>
+	</Profile>
+	<Profile sr="prof8" ve="2">
+		<cdate>1530279761632</cdate>
+		<clp>true</clp>
+		<edate>1530279761632</edate>
+		<id>8</id>
+		<mid0>6</mid0>
+		<mid1>10</mid1>
+		<Event sr="con0" ve="2">
+			<code>210</code>
+			<pri>0</pri>
+		</Event>
+	</Profile>
+	<Project sr="proj0" ve="2">
+		<cdate>1536569606070</cdate>
+		<name>lockedfor</name>
+		<pids>7,8,12</pids>
+		<tids>5,9,10,6,11</tids>
+		<Share sr="Share">
+			<d>Track how long you can keep your phone locked</d>
+			<t></t>
+		</Share>
+	</Project>
+	<Task sr="task10">
+		<cdate>1530281176465</cdate>
+		<edate>1536078498512</edate>
+		<id>10</id>
+		<nme>locks-notify</nme>
+		<Action sr="act0" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">read-last-line</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">%Line</Str>
+			<Int sr="arg5" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%Score</Str>
+			<Str sr="arg1" ve="3">(%TIMEMS-%Line2)/1000</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="1"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%Hrs</Str>
+			<Str sr="arg1" ve="3">floor(%Score / 3600)</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="1"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%Mins</Str>
+			<Str sr="arg1" ve="3">floor((%Score % 3600)/60)</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="1"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%Secs</Str>
+			<Str sr="arg1" ve="3">floor(%Score % 60)</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="1"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Nice Work! Locked for</Str>
+			<Str sr="arg1" ve="3">%Hrs h %Mins m</Str>
+			<Img sr="arg2" ve="2"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%Score</lhs>
+					<op>7</op>
+					<rhs>1800</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>30</code>
+			<Int sr="arg0" val="0"/>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>135</code>
+			<Int sr="arg0" val="0"/>
+			<Int sr="arg1" val="2"/>
+			<Str sr="arg2" ve="3">notif</Str>
+		</Action>
+	</Task>
+	<Task sr="task11">
+		<cdate>1530282673553</cdate>
+		<edate>1536078510662</edate>
+		<id>11</id>
+		<nme>locks-notify-dismiss</nme>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3">locks-notify</Str>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>779</code>
+			<Str sr="arg0" ve="3">Nice Work! Locked for</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+	</Task>
+	<Task sr="task5">
+		<cdate>1530278886736</cdate>
+		<edate>1533494322338</edate>
+		<id>5</id>
+		<nme>unlock-log</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>410</code>
+			<Str sr="arg0" ve="3">mylog.txt</Str>
+			<Str sr="arg1" ve="3">U;%TIMEMS</Str>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task6">
+		<cdate>1530279675762</cdate>
+		<edate>1545564887991</edate>
+		<id>6</id>
+		<nme>lock-log</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>410</code>
+			<Str sr="arg0" ve="3">mylog.txt</Str>
+			<Str sr="arg1" ve="3">L;%TIMEMS</Str>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task9">
+		<cdate>1530279827266</cdate>
+		<edate>1535831031293</edate>
+		<id>9</id>
+		<nme>read-last-line</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%ret</Str>
+			<Str sr="arg1" ve="3">
+</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>417</code>
+			<Str sr="arg0" ve="3">mylog.txt</Str>
+			<Str sr="arg1" ve="3">%data</Str>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>590</code>
+			<Str sr="arg0" ve="3">%data</Str>
+			<Str sr="arg1" ve="3">%ret</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%Line</Str>
+			<Str sr="arg1" ve="3">%data(&lt;)</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>590</code>
+			<Str sr="arg0" ve="3">%Line</Str>
+			<Str sr="arg1" ve="3">;</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">%Line</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>548</code>
+			<on>false</on>
+			<Str sr="arg0" ve="3">%Line</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+	</Task>
+</TaskerData>

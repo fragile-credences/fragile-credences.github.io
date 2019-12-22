@@ -1,0 +1,90 @@
+<TaskerData sr="" dvi="1" tv="5.6">
+	<Profile sr="prof13" ve="2">
+		<cdate>1530285571872</cdate>
+		<clp>true</clp>
+		<edate>1536569719848</edate>
+		<id>13</id>
+		<mid0>2</mid0>
+		<Event sr="con0" ve="2">
+			<code>411</code>
+			<pri>0</pri>
+		</Event>
+	</Profile>
+	<Profile sr="prof4" ve="2">
+		<cdate>1530278019979</cdate>
+		<edate>1536745963329</edate>
+		<id>4</id>
+		<mid0>3</mid0>
+		<mid1>2</mid1>
+		<App sr="con0" ve="2">
+			<cls0>com.google.android.maps.MapsActivity</cls0>
+			<cls1>com.android.camera.CameraLauncher</cls1>
+			<cls2>com.google.android.apps.photos.home.HomeActivity</cls2>
+			<cls3>com.getsomeheadspace.android._oldarchitecture.activities.SplashActivity</cls3>
+			<cls4>com.tapabit.zest.MainActivity</cls4>
+			<cls5>com.citymapper.app.MainActivity</cls5>
+			<cls6>com.android.calendar.AllInOneActivity</cls6>
+			<cls7>com.beeminder.beeminder.ui.GoalListView</cls7>
+			<cls8>com.google.android.keep.activities.BrowseActivity</cls8>
+			<flags>2</flags>
+			<label0>Maps</label0>
+			<label1>Camera</label1>
+			<label2>Photos</label2>
+			<label3>Headspace</label3>
+			<label4>Zest</label4>
+			<label5>Citymapper</label5>
+			<label6>Calendar</label6>
+			<label7>Beeminder</label7>
+			<label8>Keep</label8>
+			<pkg0>com.google.android.apps.maps</pkg0>
+			<pkg1>com.google.android.GoogleCamera</pkg1>
+			<pkg2>com.google.android.apps.photos</pkg2>
+			<pkg3>com.getsomeheadspace.android</pkg3>
+			<pkg4>com.tapabit.zest</pkg4>
+			<pkg5>com.citymapper.app.release</pkg5>
+			<pkg6>com.google.android.calendar</pkg6>
+			<pkg7>com.beeminder.beeminder</pkg7>
+			<pkg8>com.google.android.keep</pkg8>
+		</App>
+	</Profile>
+	<Project sr="proj0" ve="2">
+		<cdate>1536569383534</cdate>
+		<name>bw</name>
+		<pids>4,13</pids>
+		<tids>3,2</tids>
+		<Share sr="Share">
+			<d>Automate setting your phone to black and white.</d>
+			<t></t>
+		</Share>
+	</Project>
+	<Task sr="task2">
+		<cdate>1530277808438</cdate>
+		<edate>1545563541386</edate>
+		<id>2</id>
+		<nme>bw</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>235</code>
+			<Int sr="arg0" val="1"/>
+			<Str sr="arg1" ve="3">accessibility_display_daltonizer_enabled</Str>
+			<Str sr="arg2" ve="3">1</Str>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3"/>
+		</Action>
+	</Task>
+	<Task sr="task3">
+		<cdate>1530277985971</cdate>
+		<edate>1536745960742</edate>
+		<id>3</id>
+		<nme>colour</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>235</code>
+			<Int sr="arg0" val="1"/>
+			<Str sr="arg1" ve="3">accessibility_display_daltonizer_enabled</Str>
+			<Str sr="arg2" ve="3">0</Str>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3"/>
+		</Action>
+	</Task>
+</TaskerData>

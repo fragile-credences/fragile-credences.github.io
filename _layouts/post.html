@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+{% include mathjax.html %}
+
+
+<article class="post">
+	<h1 class=title>{{ page.title }}</h1>
+	  
+	<div class="date">
+	{{ page.date | date: "%B %e, %Y" }}
+	</div>
+
+	<div class="entry">
+	{{ content }}
+	</div>
+
+{% include disqus.html %}
+</article>
+
+<!-- links to other posts -->
+  <div class="extra-element"> Read more:</div> 
+  <div class="PageNavigation">
+    {% if page.previous.url %}
+    <a class="prev" href="{{page.previous.url}}">←&nbsp;{{page.previous.title}}</a>
+    {% endif %}
+    {% if page.next.url %}
+    <a class="next" href="{{page.next.url}}">{{page.next.title}}&nbsp;→ </a>
+  {% endif %}
+  </div>
+
+<!-- feedback section -->
+<div class="extra-element"> 
+  <br> Feedback? You're very welcome to <a href="mailto:tmkadamcz@gmail.com">get in touch</a>.
+
+  <script type="text/javascript">
+    function link_is_external(link_element) {return (link_element.host !== window.location.host);}
+
+    function archive_links() {
+    var links = document.links;
+    var thisHost = location.host;
+    var i = links.length;
+    var date = "{{page.date | date: "%Y%m%d"}}";
+
+    while (i--) {
+
+        if (links[i].href.slice(0) == "/" || links[i].getAttribute("href").slice(0, 3) == "../") {
+            continue;
+        }
+        
+        if (link_is_external(links[i]) && !links[i].href.startsWith("mailto:") && !links[i].href.startsWith("http://web.archive.org/web/") && !links[i].href.startsWith("javascript:")) { 
+           
+           links[i].href = "http://web.archive.org/web/" +  date+ "/"+ encodeURIComponent(links[i].href);
+
+        }
+        };
+  }
+  </script>
+  Broken link? Click <a href="javascript:archive_links()">here</a> to replace all links to external webpages with links to the web archive. 
+</div>
+ 

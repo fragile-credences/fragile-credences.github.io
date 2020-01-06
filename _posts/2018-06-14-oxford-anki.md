@@ -8,7 +8,7 @@ I used the spaced repetition app [Anki](https://apps.ankiweb.net) to memorise ma
 
 * [FHS102 Knowledge and Reality](https://ankiweb.net/shared/info/34985681)
 * [FHS103 Ethics](https://ankiweb.net/shared/info/1800866283)
-* [FHS127 Philosophical Logic]https://ankiweb.net/shared/info/800494102) and [Philosophical Logic proof toolkit](https://ankiweb.net/shared/info/633984738)
+* [FHS127 Philosophical Logic](https://ankiweb.net/shared/info/800494102) and [Philosophical Logic proof toolkit](https://ankiweb.net/shared/info/633984738)
 * [FHS300 Quantitative economics](https://ankiweb.net/shared/info/447476865)
 * [FHS301 Macroeconomics](https://ankiweb.net/shared/info/402595986)
 * [FHS302 Microeconomics](https://ankiweb.net/shared/info/1250901560)

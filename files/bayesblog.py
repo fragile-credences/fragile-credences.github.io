@@ -11,10 +11,10 @@ import decimal
 import mpld3
  
 ###############################
-# Very small normalization constants
+# small normalization constants
 ###############################
-prior = stats.norm(1,1)
-likelihood = stats.norm(10,1)
+prior = stats.lognorm(s=.5,scale=math.exp(0.5))
+likelihood = stats.norm(20,1)
 
 def split_integral(f,splitpoint,integrate_to):
     a,b = -np.inf,np.inf
@@ -26,7 +26,6 @@ def split_integral(f,splitpoint,integrate_to):
         integral_right = integrate.quad(f, splitpoint, integrate_to)[0]
         return integral_left + integral_right
 
-use_split_integral_for_norm_constant = True
 class Posterior_scipyrv(stats.rv_continuous):
 	def __init__(self,d1,d2):
 		super(Posterior_scipyrv, self).__init__()
@@ -34,11 +33,7 @@ class Posterior_scipyrv(stats.rv_continuous):
 		self.d1= d1
 		self.d2= d2
 
-		if use_split_integral_for_norm_constant:
-			splitpoint = (self.d1.expect()+self.d2.expect())/2
-			self.normalization_constant = split_integral(self.unnormalized_pdf,splitpoint,np.inf)
-		else:
-			self.normalization_constant = integrate.quad(self.unnormalized_pdf,-np.inf,np.inf)[0]
+		self.normalization_constant = integrate.quad(self.unnormalized_pdf,-np.inf,np.inf)[0]
 
 	def unnormalized_pdf(self,x):
 		return self.d1.pdf(x) * self.d2.pdf(x)
@@ -48,18 +43,19 @@ class Posterior_scipyrv(stats.rv_continuous):
 
 posterior = Posterior_scipyrv(prior,likelihood)
 
-# print("Very small normalization constants")
+# print("small normalization constants")
 # print('normalization constant:',posterior.normalization_constant)
-# for i in range(20):
+# print("CDF values:")
+# for i in range(30):
 # 	print(i,posterior.cdf(i))
 
 ###############################
 # large inputs into cdf
 ###############################
-prior = stats.norm(1,.5)
-likelihood = stats.norm(2,.5)
+prior = stats.lognorm(s=.5,scale=math.exp(0.5))
+likelihood = stats.norm(5,.5)
 
-use_split_integral_in_cdf = True
+use_split_integral_in_cdf = False
 class Posterior_scipyrv(stats.rv_continuous):
 	def __init__(self,d1,d2):
 		super(Posterior_scipyrv, self).__init__()
@@ -84,9 +80,9 @@ class Posterior_scipyrv(stats.rv_continuous):
 
 posterior = Posterior_scipyrv(prior,likelihood)
 
-# print("large inputs into cdf")
-# for i in range(100):
-# 	print(i,posterior.cdf(i))
+print("large inputs into cdf")
+for i in range(30):
+	print(i,posterior.cdf(i))
 
 ###############################
 # Defining support of posterior
@@ -133,10 +129,11 @@ class Posterior_scipyrv(stats.rv_continuous):
 		return split_integral(self.pdf,self.splitpoint,x)
 posterior = Posterior_scipyrv(prior,likelihood)
 
-# print("Defining support of posterior:")
-# s = time.time()
+# print("defining support of posterior:")
+
 # print("support:",posterior.support())
-# print(posterior.ppf(0.99))
+# s = time.time()
+# print("result:",posterior.ppf(0.99))
 # e = time.time()
 # print(e-s,'seconds to evalute ppf')
 
@@ -146,16 +143,13 @@ posterior = Posterior_scipyrv(prior,likelihood)
 prior = stats.beta(1,1)
 likelihood = stats.norm(1,3)
 
-use_split_integral_in_cdf = False
 class Posterior_scipyrv(stats.rv_continuous):
 	def __init__(self,d1,d2):
 		super(Posterior_scipyrv, self).__init__()
-
 		self.d1= d1
 		self.d2= d2
 
-		self.splitpoint = (self.d1.expect()+self.d2.expect())/2
-		self.normalization_constant = split_integral(self.unnormalized_pdf,self.splitpoint,np.inf)
+		self.normalization_constant = integrate.quad(self.unnormalized_pdf,-np.inf,np.inf)[0]
 	
 	def unnormalized_pdf(self,x):
 		return self.d1.pdf(x) * self.d2.pdf(x)
@@ -163,24 +157,21 @@ class Posterior_scipyrv(stats.rv_continuous):
 	def _pdf(self,x):
 		return self.unnormalized_pdf(x)/self.normalization_constant
 
-	def _cdf(self,x):
-		if use_split_integral_in_cdf:
-			return split_integral(self.pdf,self.splitpoint,x)
-		else:
-			return super(Posterior_scipyrv, self)._cdf(x)
-
 posterior = Posterior_scipyrv(prior,likelihood)
 
+# print("support of posterior combined with large inputs to cdf")
+# print("cdf values:")
 # for i in range(20):
 # 	print(i/5,posterior.cdf(i/5))
+# print("try to compute ppf")
 # print(posterior.ppf(0.5))
 
 ###############################
 # cdf memoization
 ###############################
-prior = stats.beta(1,1)
-likelihood = stats.lognorm(s=2,scale=math.exp(1))
-memoization = False
+prior = stats.lognorm(s=.5,scale=math.exp(0.5))
+likelihood = stats.norm(5,1)
+memoization = True
 class Posterior_scipyrv(stats.rv_continuous):
 	def __init__(self,d1,d2):
 		super(Posterior_scipyrv, self).__init__()
@@ -204,7 +195,6 @@ class Posterior_scipyrv(stats.rv_continuous):
 		return self.unnormalized_pdf(x)/self.normalization_constant
 
 	def _cdf(self,x):
-
 		if memoization:
 			# Memeoization: exploit considering the cdf to be 1 forevermore once it reaches values close to 1
 			for x_lookup in self.cdf_lookup:
@@ -222,6 +212,7 @@ class Posterior_scipyrv(stats.rv_continuous):
 					self.cdf_lookup[float(x)] = ret
 					return ret
 		
+		# Initial run
 		ret = split_integral(self.pdf,self.splitpoint,x)
 		if memoization:
 			self.cdf_lookup[float(x)] = ret
@@ -231,7 +222,8 @@ posterior = Posterior_scipyrv(prior,likelihood)
 
 percentiles_short = [0.1, 0.9, 0.25, 0.75, 0.5]
 
-# print("Memeoization:")
+# print("Memeoization")
+# print("memoization",memoization)
 # s = time.time()
 # print(posterior.ppf(percentiles_short))
 # print("length of lookup table:",len(posterior.cdf_lookup))
@@ -241,6 +233,8 @@ percentiles_short = [0.1, 0.9, 0.25, 0.75, 0.5]
 ###############################
 # ppf with bounds
 ###############################
+prior = stats.lognorm(s=.5,scale=math.exp(0.5))
+likelihood = stats.norm(5,1)
 bounds = True
 class Posterior_scipyrv(stats.rv_continuous):
 	def __init__(self,d1,d2):
@@ -337,8 +331,8 @@ posterior = Posterior_scipyrv(prior,likelihood)
 percentiles_short = [0.1, 0.9, 0.25, 0.75, 0.5]
 percentiles_long = [i/100 for i in range(50)]
 
-print("Using ppf bounds?",bounds)
-s=time.time()
-posterior.compute_percentiles(percentiles_short)
-e = time.time()
-print("total time to compute percentiles:",e-s,'seconds')
+# print("Using ppf bounds?",bounds)
+# s=time.time()
+# posterior.compute_percentiles(percentiles_short)
+# e = time.time()
+# print("total time to compute percentiles:",e-s,'seconds')

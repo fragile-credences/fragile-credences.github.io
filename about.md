@@ -3,10 +3,12 @@ layout: page
 title: "About"
 ---
 
+<img src="/images/taphoto.jpg" width="35%"/>
+
 I'm [Tom Adamczewski](http://tmkadamcz.github.io), and this is my blog.
 
 ### What's with the blog's name?
-Fragile credences are the opposite of [resilient credences](https://concepts.effectivealtruism.org/concepts/credal-resilience/). The probability you assign to a proposition, or your credence in it, is more resilient the less it is expected to change given new evidence. A person may assign the same probability to two propositions, yet one of these probabilities might be more resilient than the other. Low-resilience credences could be called fragile -- at least, that's what I've decided to call them.
+Fragile credences are the opposite of [resilient credences](https://concepts.effectivealtruism.org/concepts/credal-resilience/). The probability you assign to a proposition, or your credence in it, is more fragile the more it is expected to change given new evidence.
 
 I think credal resilience is practically and philosophically useful concept. It's a part of orthodox Bayesian epistemology that doesn't get enough love -- what better name for a weblog? 
 

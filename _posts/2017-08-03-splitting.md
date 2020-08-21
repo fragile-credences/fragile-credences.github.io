@@ -3,8 +3,6 @@ title: 'How much donation splitting is there, and should you split?'
 layout: post
 ---
 
-Cross-posted to the effective altruism [forum](http://effective-altruism.com/ea/1cx/how_much_donation_splitting_is_there_and_should/). 
-
 # Table of contents
 1. Will be replaced with the ToC, excluding the "Contents" header
 {:toc}

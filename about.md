@@ -12,9 +12,9 @@ Fragile credences are the opposite of [resilient credences](https://concepts.eff
 
 I think credal resilience is practically and philosophically useful concept. It's a part of orthodox Bayesian epistemology that doesn't get enough love -- what better name for a weblog? 
 
-Since this blog is expected to contain its fair share of speculation, the name also serves as a convenient cop-out. Look, I said they were fragile! It may be a cryptic term of art, but it's right there on the top of every page. Hence if you believe anything you read here, that's totally on you.
+The title also has two closely related meanings. First, it serves as a disclaimer and/or cop-out: 'Look, I said they were fragile!'. I'm likely to opine on topics I've just learned about and spent 2 hours researching. Honestly, you should probably read a book instead.
 
-Finally, I also like that the name can be read as a reminder not to let my beliefs ossify into overconfience. Past generations confidently believed falsehoods, we live in a complex world, and smart people disagree with me -- all of this should make my beliefs less resilient.
+Second, it can be read as a reminder not to let my beliefs ossify into overconfience. Past generations confidently believed falsehoods. Plenty of intelligent people disagree with me. My brain is a flawed reasoner. My credences _should_ be fragile. 
 
 ### Pages that do not talk about themselves
 Some pages on this blog, such as this one, talk about themselves. For a list of pages that don't talk about themselves, see [here](/list-of-pages-that-do-not-talk-about-themselves).

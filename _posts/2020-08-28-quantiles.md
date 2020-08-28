@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Eliciting probability distributions from quantiles"
-image: /images/quantiles/metalog.png
+image: /images/quantiles/metalog.PNG
 ---
 
 We often have intuitions about the probability distribution of a variable that we would like to translate into a formal specification of a distribution. Transforming our beliefs into a fully specified probability distribution allows us to further manipulate the distribution in useful ways.
@@ -12,7 +12,7 @@ In most software, you have to specify a distribution by its parameters, but thes
 
 I have built a tool that creates a probability distribution (of a given family) from user-supplied _quantiles_, sometimes also called percentiles. Quantiles are points on the cumulative distribution function: $$(p,x)$$ pairs such that $$P(X<x)=p$$. To illustrate what quantiles are, we can look at the example distribution below, which has a 50th percentile (or median) of -1 and a 90th percentile of 10. 
 
-<img src="/images/quantiles/quantiles-example.png" width="50%">  
+<img src="/images/quantiles/quantiles-example.PNG" width="50%">  
 _A cumulative distribution function with a median of -1 and a 90th percentile of 10_
 
 You can run this tool [in your browser](https://colab.research.google.com/drive/1YfS9JUMdXpilfxcgWwZUMvyRSKWrXxRE) here, and see the [code on GitHub](https://github.com/tmkadamcz/elicitor).
@@ -44,7 +44,7 @@ quantiles:
 0.9 126.2366766332274
 0.99 193.67827989071688
 ```
-<img src="../images/quantiles/lognormal.png" width="70%"/>
+<img src="../images/quantiles/lognormal.PNG" width="70%"/>
 
 # Metalog distribution[^python]
 
@@ -111,7 +111,7 @@ quantiles:
 0.9 150.00000000002515
 0.99 281.7443263650518
 ```
-<img src="../images/quantiles/metalog.png" width="70%"/>
+<img src="../images/quantiles/metalog.PNG" width="70%"/>
 
 The metalog's actual parameters (as opposed to the user-supplied quantiles) have no simple interpretation and are of no use unless the next piece of software you're going to use knows what a metalog is. Therefore the program doesn't return the parameters. Instead, if we want to manipulate this distribution, we can use the expressions of the PDF and CDF that the software provides[^fobj], or alternatively export a large number of samples into another tool that accepts distributions described by a list of samples (such as the Monte Carlo simulation tool [Guesstimate](https://getguesstimate.com)). By default, 5000 samples will be printed; you can copy and paste them.
 
@@ -123,16 +123,16 @@ How does this tool compare to other approaches for creating subjective belief di
 ## Belief intervals
 The first approach is to provide a belief interval that is mapped to some fixed quantiles, e.g. a 90% belief interval (between the 0.05 and 0.95 quantile) like on [Guesstimate](http://getguesstimate.com). [Metaculus](http://metaculus.com) provides a graphical way to input the same data, allowing the user to drag the quantiles across a line under a graph of the PDF. This is the simplest and most user-friendly approach. The tool I built incorporates the belief interval approach while going beyond it in two ways. First, you can provide completely arbitrary quantiles, instead of specifically the 0.05 and 0.95 -- or some other belief interval symmetric around 0.5. Second, you can provide more than two quantiles, which allows the user to query intuitive information about more parts of the distribution. 
 
-<img src="/images/quantiles/guesstimate.png">  
+<img src="/images/quantiles/guesstimate.PNG">  
 _Guesstimate_
 
-<img src="/images/quantiles/metaculus.png" width="70%">  
+<img src="/images/quantiles/metaculus.PNG" width="70%">  
 _Metaculus_
 
 ## Drawing
 Another option is to draw the PDF on a canvas, in free form, using your mouse. This is the very innovative approach of [probability.dev](http://probability.dev).[^canvas]
 
-<img src="/images/quantiles/dev.png">  
+<img src="/images/quantiles/dev.PNG">  
 _probability.dev_
 
 ## Ought's elicit
@@ -141,7 +141,7 @@ Ought's [elicit](https://elicit.ought.org) lets you provide quantiles like my to
 [^b]: To provide quantiles, simply leave the Min field empty -- it defaults to the left bound of the distribution.
 
 
-<img src="/images/quantiles/ought.png">  
+<img src="/images/quantiles/ought.PNG">  
 _Elicit_
 
 [^canvas]: Drawing the PDF instead of the CDF makes it difficult to hit quantiles. But drawing the CDF would probably be less intuitive -- I often have the rough shape of the PDF in mind, but I never have intuitions about the rough shape of the CDF. The canvas-based approach also runs into difficulty with the tail of unbounded distributions. Overall I think it's very cool but I haven't found it that practical.

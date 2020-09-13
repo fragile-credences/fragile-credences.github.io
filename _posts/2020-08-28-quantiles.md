@@ -15,7 +15,9 @@ I have built a tool that creates a probability distribution (of a given family) 
 <img src="/images/quantiles/quantiles-example.png" width="50%">  
 _A cumulative distribution function with a median of -1 and a 90th percentile of 10_
 
-You can run this tool [in your browser](https://colab.research.google.com/drive/1YfS9JUMdXpilfxcgWwZUMvyRSKWrXxRE) here, and see the [code on GitHub](https://github.com/tmkadamcz/elicitor).
+The [code is on GitHub](https://github.com/tmkadamcz/elicitor). To use the tool, you have a few options:
+* Run a relatively user-friendly version of the code [in your browser](https://colab.research.google.com/drive/1YfS9JUMdXpilfxcgWwZUMvyRSKWrXxRE).
+* Use a webapp. The big drawback is that currently you must use separate webapps for [traditional distributions](https://quantile-elicitor.herokuapp.com/) and for [the metalog distribution](https://tmkadamcz.shinyapps.io/metalog/).
 
 Let's run through some examples of how you can use this tool. At the end, I will discuss how it compares to other probability elicitation software, and why I think it's a valuable addition.
 

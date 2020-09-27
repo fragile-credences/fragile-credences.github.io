@@ -28,37 +28,85 @@ Such a list has a length of $$2^k$$.
 We can then ask `itertools` to give us, for a model of size $$m$$, every possible combination of $$m$$ such lists.
 
 ```python
->>> for m in range(1,k+1):
+>>> for m in range(1,2**k+1):
 >>>     possible_models = [i for i in itertools.product(possible_predicate_combinations,repeat=m)]
 >>>     print(len(possible_models),"possible models of size",m)
 >>>     for model in possible_models:
->>>         print(model)
+>>>         print(list(model))
 
 4 possible models of size 1
-((True, True),)
-((True, False),)
-((False, True),)
-((False, False),)
+[(True, True)]
+[(True, False)]
+[(False, True)]
+[(False, False)]
+
 16 possible models of size 2
-((True, True), (True, True))
-((True, True), (True, False))
-((True, True), (False, True))
-((True, True), (False, False))
-((True, False), (True, True))
-((True, False), (True, False))
-((True, False), (False, True))
-((True, False), (False, False))
-((False, True), (True, True))
-((False, True), (True, False))
-((False, True), (False, True))
-((False, True), (False, False))
-((False, False), (True, True))
-((False, False), (True, False))
-((False, False), (False, True))
-((False, False), (False, False))
+[(True, True), (True, True)]
+[(True, True), (True, False)]
+[(True, True), (False, True)]
+[(True, True), (False, False)]
+[(True, False), (True, True)]
+[(True, False), (True, False)]
+[(True, False), (False, True)]
+[(True, False), (False, False)]
+[(False, True), (True, True)]
+[(False, True), (True, False)]
+[(False, True), (False, True)]
+[(False, True), (False, False)]
+[(False, False), (True, True)]
+[(False, False), (True, False)]
+[(False, False), (False, True)]
+[(False, False), (False, False)]
+
+64 possible models of size 3
+[(True, True), (True, True), (True, True)]
+[(True, True), (True, True), (True, False)]
+[(True, True), (True, True), (False, True)]
+[(True, True), (True, True), (False, False)]
+[(True, True), (True, False), (True, True)]
+[(True, True), (True, False), (True, False)]
+[(True, True), (True, False), (False, True)]
+[(True, True), (True, False), (False, False)]
+[(True, True), (False, True), (True, True)]
+[(True, True), (False, True), (True, False)]
+[(True, True), (False, True), (False, True)]
+[(True, True), (False, True), (False, False)]
+[(True, True), (False, False), (True, True)]
+[(True, True), (False, False), (True, False)]
+[(True, True), (False, False), (False, True)]
+[(True, True), (False, False), (False, False)]
+[(True, False), (True, True), (True, True)]
+[(True, False), (True, True), (True, False)]
+[(True, False), (True, True), (False, True)]
+...
+
+
+256 possible models of size 4
+[(True, True), (True, True), (True, True), (True, True)]
+[(True, True), (True, True), (True, True), (True, False)]
+[(True, True), (True, True), (True, True), (False, True)]
+[(True, True), (True, True), (True, True), (False, False)]
+[(True, True), (True, True), (True, False), (True, True)]
+[(True, True), (True, True), (True, False), (True, False)]
+[(True, True), (True, True), (True, False), (False, True)]
+[(True, True), (True, True), (True, False), (False, False)]
+[(True, True), (True, True), (False, True), (True, True)]
+[(True, True), (True, True), (False, True), (True, False)]
+[(True, True), (True, True), (False, True), (False, True)]
+[(True, True), (True, True), (False, True), (False, False)]
+[(True, True), (True, True), (False, False), (True, True)]
+[(True, True), (True, True), (False, False), (True, False)]
+[(True, True), (True, True), (False, False), (False, True)]
+[(True, True), (True, True), (False, False), (False, False)]
+[(True, True), (True, False), (True, True), (True, True)]
+[(True, True), (True, False), (True, True), (True, False)]
+[(True, True), (True, False), (True, True), (False, True)]
+[(True, True), (True, False), (True, True), (False, False)]
+[(True, True), (True, False), (True, False), (True, True)]
+
 ```
 
-What's unfortunate here is that for our $$k$$-predicate sentence, we will need to check $$\sum_{m=1}^{k} (2^k)^m = \frac{2^k (2^{k^2} - 1)}{(2^k - 1)}$$ models. (The sum is very roughly equal to its last term, $$2^{k^2}$$.)
+What's unfortunate here is that for our $$k$$-predicate sentence, we will need to check $$\sum_{m=1}^{2^k} (2^k)^m =\frac{2^k ((2^k)^{2^k} - 1)}{2^k - 1}$$ models. (The sum is very roughly equal to its last term, $$(2^k)^{2^k} = 2^{k2^k}$$.)
 
 So checking every model is computationally impossible in practice. Fortunately, we can do better.
 
@@ -69,59 +117,70 @@ As we've seen, $$2^k$$ is the number of possible combinations of predicates that
 
 ![](/images/possibility-space-partition.png)
 
-If a model had a size of, say, $$2^k + 1$$, one of the subsets in the partition would need to contain more than one element. But this additional element would be superfluous insofar as the truth-value of the sentence is concerned. The partition subset corresponds to a predicate-combination that would already be true with just one element in the subset, and will continue to be true if more elements are added. Take, for example, the subset labeled '8' in the drawing, which corresponds to $$R \land ~Q \land ~P$$. The sentence $$\exists x R(x) \land ~Q(x) \land ~P(x)$$ is true whether there are one, two, or a million elements in subset 8. Similarly, $$\forall x R(x) \land ~Q(x) \land ~P(x)$$ does not depend on the number of elements in subset 8.
+If a model had a size of, say, $$2^k + 1$$, one of the subsets in the partition would need to contain more than one element. But this additional element would be superfluous insofar as the truth-value of the sentence is concerned. The partition subset corresponds to a predicate-combination that would already be true with just one element in the subset, and will continue to be true if more elements are added. Take, for example, the subset labeled '8' in the drawing, which corresponds to $$R \land \neg Q \land \neg P$$. The sentence $$\exists x R(x) \land \neg Q(x) \land \neg P(x)$$ is true whether there are one, two, or a million elements in subset 8. Similarly, $$\forall x R(x) \land \neg Q(x) \land \neg P(x)$$ does not depend on the number of elements in subset 8.
 
-Seeing this not only illuminates the theorem, but also let us see that many of the $$\frac{2^k (2^{k^2} - 1)}{(2^k - 1)}$$ models we considered earlier are equivalent. All that matters for our sentence's truth-value is whether each of the subsets is *empty* or non-empty. This means there are in fact only $$2^k$$ model equivalence classes to consider.
+Seeing this not only illuminates the theorem, but also let us see that the vast majority of the multitudinous $$\frac{2^k (2^{k^2} - 1)}{(2^k - 1)}$$ models we considered earlier are equivalent. All that matters for our sentence's truth-value is whether each of the subsets is *empty* or non-empty. This means there are in fact only $$2^{(2^k)}$$ model equivalence classes to consider.
 
 ```python
->>> k = 3
->>> [i for i in itertools.product(['Empty','Non-empty'],repeat=k)]
-
-[('Empty', 'Empty', 'Empty'),
- ('Empty', 'Empty', 'Non-empty'),
- ('Empty', 'Non-empty', 'Empty'),
- ('Empty', 'Non-empty', 'Non-empty'),
- ('Non-empty', 'Empty', 'Empty'),
- ('Non-empty', 'Empty', 'Non-empty'),
- ('Non-empty', 'Non-empty', 'Empty'),
- ('Non-empty', 'Non-empty', 'Non-empty')]
+>>> k = 2
+>>> [i for i in itertools.product(['Empty','Non-empty'],repeat=2**k)]
+[('Empty', 'Empty', 'Empty', 'Empty'),
+ ('Empty', 'Empty', 'Empty', 'Non-empty'),
+ ('Empty', 'Empty', 'Non-empty', 'Empty'),
+ ('Empty', 'Empty', 'Non-empty', 'Non-empty'),
+ ('Empty', 'Non-empty', 'Empty', 'Empty'),
+ ('Empty', 'Non-empty', 'Empty', 'Non-empty'),
+ ('Empty', 'Non-empty', 'Non-empty', 'Empty'),
+ ('Empty', 'Non-empty', 'Non-empty', 'Non-empty'),
+ ('Non-empty', 'Empty', 'Empty', 'Empty'),
+ ('Non-empty', 'Empty', 'Empty', 'Non-empty'),
+ ('Non-empty', 'Empty', 'Non-empty', 'Empty'),
+ ('Non-empty', 'Empty', 'Non-empty', 'Non-empty'),
+ ('Non-empty', 'Non-empty', 'Empty', 'Empty'),
+ ('Non-empty', 'Non-empty', 'Empty', 'Non-empty'),
+ ('Non-empty', 'Non-empty', 'Non-empty', 'Empty'),
+ ('Non-empty', 'Non-empty', 'Non-empty', 'Non-empty')]
 ```
 
 We are now ready to consider the extension to monadic predicate logic with identity. With identity, it's possible to check whether any two members of a model are distinct or identical. This means we can distinguish the case where a partition subset contains one element from the case where it contains several. But we can still only distinguish up to a certain number of elements in a subset. That number is bounded above by the number of variables in the sentence (e.g. if you only have two variables $$x$$ and $$y$$, it's not possible to construct a sentence that asserts there are three different things in some subset). Indeed we have:
 
-> If a sentence of monadic predicate logic with identity is satisfiable, then it has a model of size no greater than $$2^k \dot r$$, where $$k$$ is the number of monadic predicates and $$r$$ the number of variables in the sentence. (Lemma 21.9 BBJ)
+> If a sentence of monadic predicate logic with identity is satisfiable, then it has a model of size no greater than $$2^k \times r$$, where $$k$$ is the number of monadic predicates and $$r$$ the number of variables in the sentence. (Lemma 21.9 BBJ)
 
-By analogous reasoning, we need to consider only the $$(r+1)^k$$ model equivalence classes. All that matters for our sentence's truth-value is whether each of the subsets has $$0, 1, 2 ...$$ or  $$r$$ elements in it.
+By analogous reasoning, we need to consider only the $$(r+1)^{(2^k)}$$ model equivalence classes. All that matters for our sentence's truth-value is whether each of the subsets has $$0, 1, 2 ...$$ or  $$r$$ elements in it.
 
 ```python
->>> k = 3
+>>> k = 2
 >>> r = 2
->>> [i for i in itertools.product(range(r+1),repeat=k)]
-[(0, 0, 0),
- (0, 0, 1),
- (0, 0, 2),
- (0, 1, 0),
- (0, 1, 1),
- (0, 1, 2),
- (0, 2, 0),
- (0, 2, 1),
- (0, 2, 2),
- (1, 0, 0),
- (1, 0, 1),
- (1, 0, 2),
- (1, 1, 0),
- (1, 1, 1),
- (1, 1, 2),
- (1, 2, 0),
- (1, 2, 1),
- (1, 2, 2),
- (2, 0, 0),
- (2, 0, 1),
- (2, 0, 2),
- (2, 1, 0),
- (2, 1, 1),
- (2, 1, 2),
- (2, 2, 0),
- (2, 2, 1),
- (2, 2, 2)]
+>>> [i for i in itertools.product(range(r+1),repeat=2**k)]
+[[(0, 0, 0, 0, 0, 0, 0, 0),
+ (0, 0, 0, 0, 0, 0, 0, 1),
+ (0, 0, 0, 0, 0, 0, 0, 2),
+ (0, 0, 0, 0, 0, 0, 1, 0),
+ (0, 0, 0, 0, 0, 0, 1, 1),
+ (0, 0, 0, 0, 0, 0, 1, 2),
+ (0, 0, 0, 0, 0, 0, 2, 0),
+ (0, 0, 0, 0, 0, 0, 2, 1),
+ (0, 0, 0, 0, 0, 0, 2, 2),
+ (0, 0, 0, 0, 0, 1, 0, 0),
+ (0, 0, 0, 0, 0, 1, 0, 1),
+ (0, 0, 0, 0, 0, 1, 0, 2),
+ (0, 0, 0, 0, 0, 1, 1, 0),
+ (0, 0, 0, 0, 0, 1, 1, 1),
+ (0, 0, 0, 0, 0, 1, 1, 2),
+ (0, 0, 0, 0, 0, 1, 2, 0),
+ (0, 0, 0, 0, 0, 1, 2, 1),
+ (0, 0, 0, 0, 0, 1, 2, 2),
+ (0, 0, 0, 0, 0, 2, 0, 0),
+ (0, 0, 0, 0, 0, 2, 0, 1),
+ (0, 0, 0, 0, 0, 2, 0, 2),
+ (0, 0, 0, 0, 0, 2, 1, 0),
+ (0, 0, 0, 0, 0, 2, 1, 1),
+ (0, 0, 0, 0, 0, 2, 1, 2),
+ (0, 0, 0, 0, 0, 2, 2, 0),
+ (0, 0, 0, 0, 0, 2, 2, 1),
+ (0, 0, 0, 0, 0, 2, 2, 2),
+ (0, 0, 0, 0, 1, 0, 0, 0),
+ (0, 0, 0, 0, 1, 0, 0, 1),
+ (0, 0, 0, 0, 1, 0, 0, 2),
+...
 ```

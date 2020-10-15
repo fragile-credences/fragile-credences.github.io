@@ -15,7 +15,7 @@ We can make use of the Löwenheim-Skolem theorem (looking first at the case with
 
 A sentence's negation is satisfiable if and only if the sentence is not valid, so the theorem equivalently states: a sentence is valid iff it is true under every model of size no greater than $$2^k$$. 
 
-For a sentence with $$k$$ predicates, every constant $$c$$ in the model is assigned a list of $$k$$ truth-values, representing for each predicate $$P$$ whether $$P(c)$$. We can use `itertools` to find every possible such list.
+For a sentence with $$k$$ predicates, every constant $$c$$ in the model is assigned a list of $$k$$ truth-values, representing for each predicate $$P$$ whether $$P(c)$$. We can use `itertools` to find every possible such list, i.e. every possible assignment to a constant.
 
 ```python
 >>> k = 2
@@ -23,9 +23,9 @@ For a sentence with $$k$$ predicates, every constant $$c$$ in the model is assig
 [(True, True), (True, False), (False, True), (False, False)]
 ```
 
-Such a list has a length of $$2^k$$.
+The list of every possible assignment to a constant has a length of $$2^k$$. 
 
-We can then ask `itertools` to give us, for a model of size $$m$$, every possible combination of $$m$$ such lists. We let $$m$$ be at most $$2^k$$, because of the theorem.
+We can then ask `itertools` to give us, for a model of size $$m$$, every possible combination of $$m$$ such lists of possible constant-assignments. We let $$m$$ be at most $$2^k$$, because of the theorem.
 
 ```python
 >>> for m in range(1,2**k+1):
@@ -127,8 +127,6 @@ We are now ready to consider the extension to monadic predicate logic with ident
 > If a sentence of monadic predicate logic with identity is satisfiable, then it has a model of size no greater than $$2^k \times r$$, where $$k$$ is the number of monadic predicates and $$r$$ the number of variables in the sentence. (Lemma 21.9 BBJ)
 
 [^equality]: I believe it should be possible to find a tighter bound based on the number of times the equals sign actually appears in the sentence. For example, if equality is only used once, e.g. in $$\exists x \exists y \neg(x =y) \land \phi$$ where $$\phi$$ does not contain equality, it seems clear that the number of variables in $$\phi$$ should have no bearing on the model size that is needed. My hunch is that more generally you need $$n*(n-1)/2$$ uses of '$$=$$' to assert that $$n$$ objects are distinct, so, for example if '$$=$$' appears 5 times you can distinguish 3 objects in a subset, or with 12 '$$=$$'s you can distinguish 5 objects. It's only an intuition and I haven't checked it carefully.
-
-'s clear that   we're back to the case without identity, regardless of how many variables the sentence contains. 
 
 By analogous reasoning to the case without identity, we need only consider $$(r+1)^{(2^k)}-1$$ model equivalence classes. All that matters for our sentence's truth-value is whether each of the subsets has $$0, 1, 2 ...$$ or  $$r$$ elements in it.
 

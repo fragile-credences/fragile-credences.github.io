@@ -15,9 +15,7 @@ I have built a tool that creates a probability distribution (of a given family) 
 <img src="/images/quantiles/quantiles-example.png" width="50%">  
 _A cumulative distribution function with a median of -1 and a 90th percentile of 10_
 
-The [code is on GitHub](https://github.com/tmkadamcz/elicitor). To use the tool, you have two options:
-* Run a relatively user-friendly version of the code [in your browser](https://colab.research.google.com/drive/1YfS9JUMdXpilfxcgWwZUMvyRSKWrXxRE).
-* Use a [webapp](https://quantile-elicitor.herokuapp.com/). This currently only supports traditional distributions, not the metalog distribution. The reason is that the metalog requires an R package that is more difficult to make work with the web app hosting system Heroku.
+The [code is on GitHub](https://github.com/tmkadamcz/elicitor), and the webapp is [here](https://quantile-elicitor.herokuapp.com/).
 
 Let's run through some examples of how you can use this tool. At the end, I will discuss how it compares to other probability elicitation software, and why I think it's a valuable addition.
 
@@ -48,12 +46,7 @@ quantiles:
 ```
 <img src="../images/quantiles/lognormal.png" width="70%"/>
 
-# Metalog distribution[^python]
-
-[^python]:
-    Regrettably, I had to use R for this part, making my program an unholy mixture of Python and R (with rpy2). Beyond the inelegance of it, this adds a delay of multiple seconds the first time a metalog is created, to load the R session from within Python. Subsequent runs are not slowed down noticeably.
-
-    There actually exist two python packages for R ([pymetalog](https://github.com/tjefferies/pymetalog) and [metalog](https://github.com/kimsergeo/metalog)), but I could make neither of them work with a reasonable level of effort for this project. pymetalog, with which I spent the most time trying, gives an answer that implies a _decreasing_ CDF when using `qmetalog` on some 'peaky' inputs. The packages don't appear to be maintained.
+# Metalog distribution
 
 The feature I am most excited about, however, is the support for a new type of distribution developed specifically for the purposes of flexible elicitation from quantiles, called the meta-logistic distribution. It was first described in [Keelin 2016](http://www.metalogdistributions.com/images/quantiles/The_Metalog_Distributions_-_Keelin_2016.pdf), which puts it at the cutting edge compared to the venerable normal distribution invented by Gauss and Laplace around 1810. The meta-logistic, or metalog for short, does not use traditional parameters. Instead, it can take on as many terms as the user provides quantiles, and adopts whatever shape is needed to fit these quantiles very closely. Closed-form expressions exist for its quantile function (the inverse of the CDF) and for its PDF. This leads to attractive computational properties (see footnote)[^computational].
 
@@ -115,9 +108,8 @@ quantiles:
 ```
 <img src="../images/quantiles/metalog.png" width="70%"/>
 
-The metalog's actual parameters (as opposed to the user-supplied quantiles) have no simple interpretation and are of no use unless the next piece of software you're going to use knows what a metalog is. Therefore the program doesn't return the parameters. Instead, if we want to manipulate this distribution, we can use the expressions of the PDF and CDF that the software provides[^fobj], or alternatively export a large number of samples into another tool that accepts distributions described by a list of samples (such as the Monte Carlo simulation tool [Guesstimate](https://getguesstimate.com)). By default, 5000 samples will be printed; you can copy and paste them.
+The metalog's actual parameters (as opposed to the user-supplied quantiles) have no simple interpretation and are of no use unless the next piece of software you're going to use knows what a metalog is. Therefore the program doesn't return the parameters. Instead, if we want to manipulate this distribution, we can use the expressions of the PDF and CDF that the software provides, or alternatively export a large number of samples into another tool that accepts distributions described by a list of samples (such as the Monte Carlo simulation tool [Guesstimate](https://getguesstimate.com)). By default, 5000 samples will be printed; you can copy and paste them.
 
-[^fobj]: You can use my script's Python function objects. Simply look for the `r_dmetalog_func` (the PDF) and `r_pmetalog_func` (the CDF). These are currently `rpy2` function objects which take r vectors as parameters, but you can easily wrap a function around it to turn it into an ordinary python function.
 
 # Approaches to elicitation
 How does this tool compare to other approaches for creating subjective belief distributions? Here are the strategies I've seen.

@@ -1,12 +1,35 @@
 ---
 layout: post
-title: "Monadic predicate logic theorem checker"
+title: "Efficient validity checking in monadic predicate logic"
 image: /images/possibility-space-partition.png
 ---
 
-Monadic predicate logic (with identity) is decidable (Boolos, Burgess, and Jeffrey 2007, Ch. 21. The result goes back to Löwenheim-Skolem 1915).
+Monadic predicate logic (with identity) is decidable. (See Boolos, Burgess, and Jeffrey 2007, Ch. 21. The result goes back to Löwenheim-Skolem 1915).
 
-How can we [write a program](https://monadic-predicate.herokuapp.com/) to check whether a formula is valid (and hence a theorem)?
+How can we [write a program](https://monadic-predicate.herokuapp.com/) to check whether a formula is logically valid (and hence also a theorem)?
+
+First, we have to parse the formula, meaning to convert it form a string into a format that represents its syntax in a machine-readable way. That format is an [abstract syntax tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) like this:
+
+<pre style="font-family:monospace">
+Formula:
+∀x(Ax→(Ax∧Bx))
+
+Abstract syntax tree:
+∀
+├── x
+└── →
+    ├── A
+    │   └── x
+    └── ∧
+        ├── A
+        │   └── x
+        └── B
+            └── x
+</pre>
+
+Writing the parser was a fun lesson in a fundamental aspect of computer science. But there was nothing novel about this exercise, and not much interesting to say about it.
+
+The focus of this post, instead, is the part of the program that actually checks whether this syntax tree represents a logically valid formula.
 
 To start with, we might try to evaluate the formula under every possible model of a given size. How big does the model need to be?
 

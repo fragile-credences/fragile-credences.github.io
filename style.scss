@@ -358,8 +358,17 @@ table tbody tr:last-child {
 #### tom's hacky stuff
 */
 .extra-element {
-  font-style: italic;
-  color: $gray;
+  
+}
+
+.extra-element-container > * {
+    margin-top: 1em;
+    font-style: italic;
+    color: $gray;
+}
+
+.extra-element-container > *:first-child {
+    margin-top: 0px;
 }
 
 .footnotes::before {
@@ -396,7 +405,7 @@ table tbody tr:last-child {
   flex-wrap: wrap;
   width: auto;
   overflow: hidden;
-  padding-top: 1em;
+  /*padding-top: 1em;*/
 }
 
 .PageNavigation .prev {
@@ -415,4 +424,27 @@ table tbody tr:last-child {
   /* flex-grow, flex-shrink, flex-basis */
   flex: 1 1 0;
   flex-basis: 16em;
+}
+
+button {
+  color: #fff;
+  background-color: #47e;
+  -webkit-appearance:none;
+  border: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  letter-spacing: .03em;
+  box-sizing:border-box;
+  height:32px;
+  line-height:32px;
+  padding:0 18px;
+  display: inline-block;
+  margin: 0;
+  transition: all 0.23s ease-in-out 0s;
+}
+
+button:hover {
+  background-color: #365FBE;
+  cursor: pointer;
 }

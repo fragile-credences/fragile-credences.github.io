@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    function link_is_external(link_element) {return (link_element.host !== window.location.host);}
+
+    function archive_links() {
+    var links = document.links;
+    var thisHost = location.host;
+    var i = links.length;
+    var date = "{{page.date | date: "%Y%m%d"}}";
+
+    while (i--) {
+
+        if (links[i].href.slice(0) == "/" || links[i].getAttribute("href").slice(0, 3) == "../") {
+            continue;
+        }
+        
+        if (link_is_external(links[i]) && !links[i].href.startsWith("mailto:") && !links[i].href.startsWith("http://web.archive.org/web/") && !links[i].href.startsWith("javascript:")) { 
+           
+           links[i].href = "http://web.archive.org/web/" +  date+ "/"+ encodeURIComponent(links[i].href);
+
+        }
+        };
+  }
+  </script>
+<div>
+  Broken link? Click <a href="javascript:archive_links()">here</a> to replace all links to external webpages with links to the web archive.
+</div>

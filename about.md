@@ -5,7 +5,7 @@ title: "About"
 
 <img src="/images/taphoto.jpg" width="35%"/>
 
-I'm [Tom Adamczewski](http://tmkadamcz.github.io), and this is my blog.
+I'm [Tom Adamczewski](http://tadamcz.github.io), and this is my blog.
 
 ### What's with the blog's name?
 Fragile credences are the opposite of [resilient credences](https://concepts.effectivealtruism.org/concepts/credal-resilience/). The probability you assign to a proposition, or your credence in it, is more fragile the more it is expected to change given new evidence.

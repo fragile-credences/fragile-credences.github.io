@@ -1,5 +1,5 @@
 ---
-title: "Protecting yourself from Vanguard's woeful security practices"
+title: "Protecting yourself from Vanguard's poor security practices"
 layout: post
 image: /images/vanguard-2fa.png
 ---

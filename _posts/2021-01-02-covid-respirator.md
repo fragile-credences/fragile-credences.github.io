@@ -14,6 +14,8 @@ image: /images/mask/social_image.PNG
 # Elastomeric respirators
 The effectiveness of a mask can be broken down into two parts: how well the mask fits on your face, and the filtration efficiency of the mask. A further important consideration is comfort.
 
+Surgical and cloth masks are comfortable but have poor fit and filtration efficiency. I believe it's possible to do much better.
+
 Respirators that meet the NIOSH [N95 or N99 standards][niosh] for filtration efficiency, such as the N95 respirators pictured below, are popular in healthcare settings.
 
 <img src="/images/mask/3M_N95_Particulate_Respirator.jfif" width="50%"><img src="/images/mask/n95_sailor.webp" width="50%">   
@@ -38,6 +40,7 @@ Compared to healthcare N95s, these respirators:
 - achieve superior fit by using elastomers shaped like a human face (there is no need to bend a metal nose bridge)
 - are **much more comfortable**, mainly because they:
     - spread the pressure onto a wider area of skin
+    - come in multiple sizes
     - have adjustable straps
 - won't fog up your glasses
 

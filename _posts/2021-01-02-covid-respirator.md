@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Modified respirator to shield myself and others from COVID"
+image: /images/mask/social_image.PNG
 ---
 
 **Summary:** _I have tried many types of masks and respirators during the 2020 pandemic. My recommendation is to use 'elastomeric' respirators common in industry, and to either filter or completely block off their exhalation valve. The result is a comfortable respirator that I believe offers a high level of protection against airborne diseases to myself and others. I am not an infectious disease expert._

@@ -195,7 +195,7 @@ We can seal off the exhalation valve from the outside with tape[^altmethods]. On
 <img src="/images/mask/tape_0.webp" width="50%"><img src="/images/mask/tape_1.webp" width="50%">
 _Tape on exhalation cage_
 
-I am using [painter's tape](https://www.amazon.com/gp/product/B00004Z4DU/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1) because it's supposed to pull off without leaving a residue of glue. It's possible that it would be better to use tape with a stronger adhesive.
+I am using [painter's tape](https://www.amazon.com/gp/product/B00004Z4DU/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1) because it's supposed to pull off without leaving a residue of glue. It's possible that it would be better to use tape with a stronger adhesive. (A friend of mine commented: "Some ideas for sealing off the exhalation valve: (1) Butyl tape/self-vulcanizing tape. Not so much a sticky tape as a ribbon of moldable putty, so no adhesive residue. This stuff is pretty much unparalleled if you need to make a fully gas- and watertight seal around an irregularly shaped opening in a pinch without making a mess. The fact that it has no adhesive does put some constraints on the geometry of the part you’re sealing off, but I think it would work (better than painter’s tape, at least) on the Miller. (2) Vinyl tape/electrical tape. It’s relatively water-resistant and can be stretched to some extent. The adhesive also sticks to polymers pretty well (although it does leave a lot of residue after some time, but you can clean that off with a bit of IPA).")
 
 You can check the seal of your tape by pressing the mask onto your face and attempting to exhale (with the inhalation valves intact). Air should only be able to escape through the sides of the mask.
 

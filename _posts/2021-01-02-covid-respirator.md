@@ -120,7 +120,7 @@ Here are the steps you should follow (see video):
 * use a rubber band and tape to attach the material over the respirator valve. This is better explained with a video than in words. The main thing to know is that you should use the two small ridges in the plastic below the valve to secure the rubber band.
 * add tape on the upper end of the KN95 material
 
-<video controls style="max-height: 100vh">
+<video controls style="max-height: 100vh; max-width:100%">
   <source src="/images/mask/instructions.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>

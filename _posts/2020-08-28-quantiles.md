@@ -15,7 +15,7 @@ I have built a tool that creates a probability distribution (of a given family) 
 <img src="/images/quantiles/quantiles-example.png" width="50%">  
 _A cumulative distribution function with a median of -1 and a 90th percentile of 10_
 
-The [code is on GitHub](https://github.com/tmkadamcz/elicitor), and the webapp is [here](https://quantile-elicitor.herokuapp.com/).
+The [code is on GitHub](https://github.com/tmkadamcz/elicitor), and the webapp is [here](http://makedistribution.com).
 
 Let's run through some examples of how you can use this tool. At the end, I will discuss how it compares to other probability elicitation software, and why I think it's a valuable addition.
 

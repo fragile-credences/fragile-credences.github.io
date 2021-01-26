@@ -5,7 +5,7 @@ title: "About"
 
 <img src="/images/taphoto.jpg" style="max-width:65%; width:250px"/>
 
-I'm [Tom Adamczewski](http://tadamcz.com), and this is my [eclectic](/index-by-year) and sometimes [abstruse](/solution-concepts) blog.
+I'm [Tom Adamczewski](http://tadamcz.com), and this is my [eclectic](/index-by-year) and sometimes [abst](/solution-concepts)[ruse](/monadic-predicate) blog.
 
 ### What are fragile credences?
 Fragile credences are the opposite of [resilient credences](https://concepts.effectivealtruism.org/concepts/credal-resilience/). The probability you assign to a proposition, or your credence in it, is more fragile the more it is expected to change given new evidence.

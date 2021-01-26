@@ -20,6 +20,8 @@ It's disappointing that a company with over 6 trillion dollars of assets under m
 
 **The workaround I've found is to use a Google Voice number to receive SMS 2fa codes** (don't bother with the useless security key). Of course, you must set the Google Voice number not to forward SMS messages to your main phone number, which would defeat the purpose. Then, the messages can only be read by being logged in to the Google account. A Google account can be made into an extremely hardened target. The [advanced protection program](https://landing.google.com/advancedprotection/) is available for the sufficiently paranoid.
 
+If you don't receive the SMS for some reason, you can also receive the authentication code with an automated call to the same number.
+
 You need to have an existing US phone number to create a Google Voice account.
 
 By the way, using Google Voice may not work for all companies that force you to use SMS 2fa. I have verified that it works for Vanguard. [This poster](https://support.google.com/voice/thread/13363202?hl=en&msgid=13363524) claims that "many financial institutions will now only send their 2FA codes to true mobile phone numbers.  Google Voice numbers are land lines, with the text messaging function spliced on via a third-party messaging gateway".

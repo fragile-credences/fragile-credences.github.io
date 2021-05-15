@@ -14,3 +14,6 @@ I think credal resilience is practically and philosophically useful concept. It 
 
 ### Pages that do not talk about themselves
 Some pages on this blog, such as this one, talk about themselves. For a list of pages that don't talk about themselves, see [here](/list-of-pages-that-do-not-talk-about-themselves).
+
+### Programming
+As of 2021, a majority of my new output tends to be written [in code](https://github.com/tadamcz) rather than in words.

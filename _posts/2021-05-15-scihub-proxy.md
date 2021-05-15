@@ -35,9 +35,7 @@ function FindProxyForURL (url, host) {
 }
 ```
 
-We can instruct the operating system to read this file[^proxyWIN]. Search for instructions on Google ([example](https://www.google.com/search?q=proxy+auto+configuration+file+mac+os)).
-
-[^proxyWIN]: One gotcha is that Windows 10 [forces you](https://docs.microsoft.com/en-us/troubleshoot/browsers/cannot-read-pac-file) to call your PAC file from a web server; it cannot be a local file (??!). To work around this, you can upload your file as a [Gist](https://gist.github.com/) and link to the `/raw`.
+We can instruct the operating system to read this file. Search for instructions on Google ([example](https://www.google.com/search?q=proxy+auto+configuration+file+mac+os)).
 
 The first time you use the proxy to access Sci-Hub, the browser will ask you for the username and password to your proxy server.
 
@@ -50,6 +48,9 @@ There are many free proxies on the Internet, but I find that using the services 
 ### Step by step instructions
 1. Create an account on webshare.io
 2. Choose a proxy from your list, and copy its address and port number into your PAC file, following the pattern above.
-3. Set your operating system to read its proxy settings from this PAC file. Instructions for this are easy to Google ([example](https://www.google.com/search?q=proxy+auto+configuration+file+mac+os)).
+3. Set your operating system to read its proxy settings from this PAC file[^proxyWIN]. Instructions for this are easy to Google ([example](https://www.google.com/search?q=proxy+auto+configuration+file+mac+os)).
 4. Open Sci-Hub in your browser. The first time you do this, it should ask for your proxy username and password. You can find these in your webshare.io account.
 5. Don't forget to only use Sci-Hub to look at really old papers that have lapsed into the public domain :)
+
+
+[^proxyWIN]: One gotcha is that Windows 10 [forces you](https://docs.microsoft.com/en-us/troubleshoot/browsers/cannot-read-pac-file) to call your PAC file from a web server; it cannot be a local file (??!). To work around this, you can upload your file as a [Gist](https://gist.github.com/) and link to the `/raw`.

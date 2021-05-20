@@ -24,7 +24,7 @@ Luckily, we can achieve the same effect by writing our own *proxy auto-configura
 function FindProxyForURL (url, host) {
   
   // Sci-Hub requests
-  if (shExpMatch(host, 'sci-hub.se')) {
+  if (shExpMatch(host, 'sci-hub.se') || shExpMatch(host,'*.sci-hub.se')) {
 
                   // Your proxy address and port number
     return 'PROXY 123.456.789:9279'; 

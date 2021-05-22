@@ -39,14 +39,14 @@ We can instruct the operating system to read this file. Search for instructions 
 
 The first time you use the proxy to access Sci-Hub, the browser will ask you for the username and password to your proxy server.
 
-There are many free proxies on the Internet, but I find that using the services of an actual for-profit proxy company is well worth it, for the greater speed and reliability. Currently [webshare.io](https://www.webshare.io/proxy-server?referral_code=1uknewljmt9y) offers 1 GB per month free, which is quite a lot of Sci-Hub PDFs. After that you can get 250 GB for $2.99 per month.[^webshare]
+There are many free proxies on the Internet, but I find that using the services of an actual for-profit proxy company is well worth it, for the greater speed and reliability. Currently [webshare.io](https://www.webshare.io/proxy-server?referral_code=1uknewljmt9y) (referral link) offers 1 GB per month free, which is quite a lot of Sci-Hub PDFs. After that you can get 250 GB for $2.99 per month.[^webshare]
 
 
 [^webshare]: Their home page exemplifies a dark pattern by not showing the pricing by the GB; it just says you get 'up to unlimited' bandwidth. You'll be able to see the actual pricing after you create an account.
 
 
 ### Step by step instructions
-1. [Create an account on webshare.io](https://www.webshare.io/?referral_code=1uknewljmt9y)
+1. [Create an account on webshare.io](https://www.webshare.io/?referral_code=1uknewljmt9y) (referral link)
 2. Choose a proxy from your list, and copy its address and port number into your PAC file, following the pattern above.
 3. Set your operating system to read its proxy settings from this PAC file[^proxyWIN]. Instructions for this are easy to Google ([example](https://www.google.com/search?q=proxy+auto+configuration+file+mac+os)).
 4. Open Sci-Hub in your browser. The first time you do this, it should ask for your proxy username and password. You can find these in your webshare.io account.

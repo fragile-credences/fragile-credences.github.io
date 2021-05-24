@@ -6,10 +6,11 @@ image: /images/sci-hub-proxy.png
 
 ![](/images/sci-hub-proxy.png)
 
-In the UK, many internet service providers block [Sci-Hub](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5832410/). Fortunately, a simple proxy is enough to circumvent this (you don't even need a VPN).
+In the UK, many internet service providers (ISPs) block [Sci-Hub](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5832410/). However, a simple proxy is enough to circumvent this (you don't even need a VPN). Routing requests through a suitable[^bl] proxy lets you open Sci-Hub in your regular browser as if it weren't blocked.
 
-Routing requests through a suitable[^bl] proxy lets you open Sci-Hub in your regular browser as if it weren't blocked.
+(Changing your DNS resolver to a public one [like Google's](https://developers.google.com/speed/public-dns/) instead of your ISP's is not sufficient as of 2021 -- for two ISPs I've tested, and I suspect all UK ISPs[^DNSclaim]. My guess is that instead of merely blocking the request to resolve `sci-hub.se` at the DNS resolver level, the ISPs are also doing a [reverse lookup](https://en.wikipedia.org/wiki/Reverse_DNS_lookup) on every requested IP address to check whether it corresponds to a blacklisted domain.)
 
+[^DNSclaim]: Many people believe changing the DNS resolver is sufficient. Probably ISPs used to implement simple DNS level blocking and have recently upped their game. 
 [^bl]: Obviously, the proxy must not itself be on a network that blocks Sci-Hub. I have not come across any proxy that blocks Sci-Hub in this way.
 
 Routing all your traffic through a proxy may come with privacy and security concerns, and will slow your connection a bit. We want to use our proxy only for accessing Sci-Hub.
@@ -54,3 +55,4 @@ There are many free proxies on the Internet, but I find that using the services 
 
 
 [^proxyWIN]: One gotcha is that Windows 10 [forces you](https://docs.microsoft.com/en-us/troubleshoot/browsers/cannot-read-pac-file) to call your PAC file from a web server; it cannot be a local file (??!). To work around this, you can upload your file as a [Gist](https://gist.github.com/) and link to the `/raw`.
+

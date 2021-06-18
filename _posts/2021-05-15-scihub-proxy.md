@@ -36,7 +36,9 @@ function FindProxyForURL (url, host) {
 
 We can instruct the operating system to read this file. Search for instructions on Google ([example](https://www.google.com/search?q=proxy+auto+configuration+file+mac+os)).
 
-The first time you use the proxy to access Sci-Hub, the browser will ask you for the username and password to your proxy server.
+When you use the proxy to access Sci-Hub for the first time in a browser session, the browser will ask you for the username and password to your proxy server. If you're using Chrome, I'd recommend saving the credentials into the browser's password manager to avoid having to enter them again.[^save-password]
+
+[^save-password]: You want to use the Chrome password manager because third-party password managers such as 1Password are not able to auto-fill credentials when logging in to a proxy server (as opposed to logging into a webpage). Note that if you have a third-party password manager extension installed this will disable the browser setting "Offer to save passwords". I recommend that you temporarily disable your password manager extension, log in to your proxy server, save the password into Chrome, and then enable the extension again. 
 
 There are many free proxies on the Internet, but I find that using the services of an actual for-profit proxy company is well worth it, for the greater speed and reliability. Currently [webshare.io](https://www.webshare.io/proxy-server?referral_code=1uknewljmt9y) (referral link) offers 1 GB per month free, which is quite a lot of Sci-Hub PDFs. After that you can get 250 GB for $2.99 per month.[^webshare]
 
@@ -48,7 +50,7 @@ There are many free proxies on the Internet, but I find that using the services 
 1. [Create an account on webshare.io](https://www.webshare.io/?referral_code=1uknewljmt9y) (referral link)
 2. Choose a proxy from your list, and copy its address and port number into your PAC file, following the pattern above.
 3. Set your operating system to read its proxy settings from this PAC file[^proxyWIN]. Instructions for this are easy to Google ([example](https://www.google.com/search?q=proxy+auto+configuration+file+mac+os)).
-4. Open Sci-Hub in your browser. The first time you do this, it should ask for your proxy username and password. You can find these in your webshare.io account.
+4. Open Sci-Hub in your browser. Enter your proxy username and password and optionally save these credentials in the browser. You can find the credentials in your webshare.io account.
 5. Don't forget to only use Sci-Hub to look at really old papers that have lapsed into the public domain :)
 
 

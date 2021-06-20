@@ -7,12 +7,6 @@ title: "About"
 
 I'm [Tom Adamczewski](http://tadamcz.com), and this is my [eclectic](/index-by-year) and sometimes [abst](/solution-concepts)[ruse](/monadic-predicate) blog.
 
-### Programming
-
-Lately, a majority of my new output tends to be written [in code](https://github.com/tadamcz) rather than in words. 
-
-**Are you hiring software engineers (London or remote) and think I might be a good fit? [Send me an email](mailto:tmkadamcz@gmail.com).**
-
 ### What are fragile credences?
 Fragile credences are the opposite of [resilient credences](https://concepts.effectivealtruism.org/concepts/credal-resilience/). The probability you assign to a proposition, or your credence in it, is more fragile the more it is expected to change given new evidence.
 
@@ -21,3 +15,6 @@ I think credal resilience is practically and philosophically useful concept. It 
 ### Pages that do not talk about themselves
 Some pages on this blog, such as this one, talk about themselves. For a list of pages that don't talk about themselves, see [here](/list-of-pages-that-do-not-talk-about-themselves).
 
+### Programming
+
+Lately, a majority of my new output tends to be written [in code](https://github.com/tadamcz) rather than in words. 

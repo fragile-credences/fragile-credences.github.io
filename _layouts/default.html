@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
+    {% include meta.html %}
+
+    <meta http-equiv="refresh" content="0;url=https://bayes.net{{ page.url }}" /> <!-- This is the meta tag that redirects the entire site -->
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+  <h1>Redirecting...</h1>
+    <a href="http://https://bayes.net{{ page.url }}">Click here if you are not redirected.</a>
+  </body>
+</html>
